@@ -5,9 +5,9 @@ import json
 from time import time
 import pickle
 import pandas as pd
-import SimpleGUI
-import wx
-import myAUI
+# import SimpleGUI
+# import wx
+# import myAUI
 from Detector import Detector
 from cargobay import CargoBay
 from Environment import Environment
@@ -45,7 +45,7 @@ def print_results(summary, data_path='test_result.csv'):
         print('Fail Test counts:{:d}\n\n'.format(
             len(df_res[df_res.Alarm == False])))
         print(df_res.to_string())
-
+    return df_res  #返回一个dataframe用于网页输出
 
 def RunMain(LOAD_DEF=True):
     # 输入cargobay几何数据
@@ -99,7 +99,7 @@ def RunMain(LOAD_DEF=True):
         'Time': End_T-Start_T
     }
 
-    print_results(runs_summary)
+    return print_results(runs_summary)  # 返回一个dataframe用于网页输出
 
 
 if __name__ == "__main__":

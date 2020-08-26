@@ -166,4 +166,5 @@ if st.sidebar.button('设置完成'):
     
     # predictor.RunMain()
 if st.button('开始预测'):
-    predictor.RunMain()
+    df_res = predictor.RunMain(True)
+    st.dataframe(data=df_res)  #向网页返回结果
